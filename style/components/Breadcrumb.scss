@@ -1,0 +1,28 @@
+@import '../variables.scss';
+
+.breadcrumb {
+  margin-bottom: 0;
+  padding: 0.5rem 3% !important;
+  background-color: #333;
+
+  .breadcrumb-item {
+    font-size: 1.1rem;
+    & + .breadcrumb-item::before {
+      content: '›';
+      color: #fff;
+    }
+    & > a {
+      transition: all 0.3s ease 0s;
+      border-bottom: 0;
+      color: white;
+      &:hover {
+        text-decoration: none;
+        color: $primary;
+      }
+    }
+  }
+
+  .breadcrumb-item.active > a {
+    color: $primary;
+  }
+}

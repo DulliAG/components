@@ -1,19 +1,30 @@
 {
   "name": "@dulliag/components",
-  "version": "0.2.2",
+  "version": "0.4.0",
   "author": "tklein1801",
-  "description": "",
+  "description": "ReactJS component libary",
   "keywords": [
     "dulliag",
     "reactjs",
+    "bootstrap",
     "components",
-    "ui",
-    "wip"
+    "cookie-disclaimer",
+    "breadcrumb",
+    "navbar",
+    "footer"
   ],
   "license": "MIT",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
   "module": "dist/components.esm.js",
+  "homepage": "https://dulliag.de",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/DulliAG/dulliag-components.git"
+  },
+  "bugs": {
+    "url": "https://github.com/DulliAG/dulliag-components/issues"
+  },
   "files": [
     "dist",
     "src",
@@ -53,13 +64,15 @@
     }
   ],
   "dependencies": {
+    "@types/react-dom": "^17.0.7",
     "@popperjs/core": "^2.9.2",
     "bootstrap": "^5.0.1",
     "jquery": "^3.6.0",
     "popper.js": "^1.16.1",
     "remixicon": "^2.5.0",
     "universal-cookie": "^4.0.4",
-    "node-sass": "^6.0.1"
+    "node-sass": "^6.0.1",
+    "react-router-dom": "^5.2.0"
   },
   "devDependencies": {
     "@size-limit/preset-small-lib": "^5.0.1",
@@ -71,10 +84,13 @@
     "size-limit": "^5.0.1",
     "tsdx": "^0.14.1",
     "tslib": "^2.3.0",
-    "typescript": "^4.3.4"
+    "typescript": "^4.3.4",
+    "@types/react-router-dom": "^5.1.7"
   },
   "peerDependencies": {
     "react": ">=17",
-    "react-dom": ">=17"
+    "react-dom": ">=17",
+    "@types/react": ">=17",
+    "@types/react-dom": ">=17"
   }
 }
