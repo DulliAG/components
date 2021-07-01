@@ -1,0 +1,32 @@
+@import '../variables.scss';
+
+.footer {
+  h5 {
+    color: $primary !important;
+  }
+
+  .links {
+    padding-right: 2.5%;
+    padding-left: 2.5%;
+    background-color: #333;
+    li > a {
+      transition: 200ms;
+      border-bottom: none !important;
+      color: #6c757d;
+    }
+  }
+
+  .credits {
+    background-color: $primary;
+    color: white;
+
+    p > a {
+      color: #fff;
+      border-bottom-color: #fff;
+      &:hover {
+        color: $text !important;
+        border-bottom-color: $text !important;
+      }
+    }
+  }
+}

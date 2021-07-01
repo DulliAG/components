@@ -1,0 +1,80 @@
+{
+  "name": "@dulliag/components",
+  "version": "0.2.2",
+  "author": "tklein1801",
+  "description": "",
+  "keywords": [
+    "dulliag",
+    "reactjs",
+    "components",
+    "ui",
+    "wip"
+  ],
+  "license": "MIT",
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
+  "module": "dist/components.esm.js",
+  "files": [
+    "dist",
+    "src",
+    "style"
+  ],
+  "engines": {
+    "node": ">=10"
+  },
+  "scripts": {
+    "start": "tsdx watch",
+    "build": "tsdx build",
+    "test": "tsdx test --passWithNoTests",
+    "lint": "tsdx lint",
+    "prepare": "tsdx build",
+    "size": "size-limit",
+    "analyze": "size-limit --why"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "tsdx lint"
+    }
+  },
+  "prettier": {
+    "printWidth": 80,
+    "semi": true,
+    "singleQuote": true,
+    "trailingComma": "es5"
+  },
+  "size-limit": [
+    {
+      "path": "dist/components.cjs.production.min.js",
+      "limit": "10 KB"
+    },
+    {
+      "path": "dist/components.esm.js",
+      "limit": "10 KB"
+    }
+  ],
+  "dependencies": {
+    "@popperjs/core": "^2.9.2",
+    "bootstrap": "^5.0.1",
+    "jquery": "^3.6.0",
+    "popper.js": "^1.16.1",
+    "remixicon": "^2.5.0",
+    "universal-cookie": "^4.0.4",
+    "node-sass": "^6.0.1"
+  },
+  "devDependencies": {
+    "@size-limit/preset-small-lib": "^5.0.1",
+    "@types/react": "^17.0.11",
+    "@types/react-dom": "^17.0.8",
+    "husky": "^6.0.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "size-limit": "^5.0.1",
+    "tsdx": "^0.14.1",
+    "tslib": "^2.3.0",
+    "typescript": "^4.3.4"
+  },
+  "peerDependencies": {
+    "react": ">=17",
+    "react-dom": ">=17"
+  }
+}
