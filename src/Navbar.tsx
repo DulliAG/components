@@ -2,6 +2,7 @@ import React, { FC, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 export interface NavbarLink {
+  link?: boolean;
   show: boolean;
   name: string;
   value: string;
@@ -52,18 +53,33 @@ export const Navbar: FC<NavbarProps> = ({ links }) => {
           <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
             {links.map((link, index) => {
               if (!link.show) return;
-              return (
-                <li key={index} className="nav-item">
-                  <Link
-                    id={link.name}
-                    className="link nav-link"
-                    to={link.path}
-                    onClick={handleClick}
-                  >
-                    {link.value}
-                  </Link>
-                </li>
-              );
+              if (link.link) {
+                return (
+                  <li key={index} className="nav-item">
+                    <Link
+                      id={link.name}
+                      className="link nav-link"
+                      to={link.path}
+                      onClick={handleClick}
+                    >
+                      {link.value}
+                    </Link>
+                  </li>
+                );
+              } else {
+                return (
+                  <li key={index} className="nav-item">
+                    <a
+                      id={link.name}
+                      className="link nav-link"
+                      href={link.path}
+                      onClick={handleClick}
+                    >
+                      {link.value}
+                    </a>
+                  </li>
+                );
+              }
             })}
           </ul>
         </div>

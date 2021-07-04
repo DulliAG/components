@@ -37,23 +37,26 @@ export const Footer: FC<FooterProps> = ({
     <footer className="footer">
       <div className="links py-5">
         <div className="row mx-0">
-          <div className="link-container col-md-2 col-6 mb-3 mb-md-0 pl-0 pl-md-3">
+          <div className="link-container col-md-2 col-6 mb-3 mb-md-0 ps-0 ps-md-3">
             <h5 className="mb-1">Allgemeines</h5>
             <ul className="list-unstyled text-small">
               <li>
-                <a className="footer-link" href="/Impressum">
+                <a className="footer-link" href="https://dulliag.de/Impressum">
                   Impressum
                 </a>
               </li>
               <li>
-                <a className="footer-link" href="/Datenschutz">
+                <a
+                  className="footer-link"
+                  href="https://dulliag.de/Datenschutz"
+                >
                   Datenschutz
                 </a>
               </li>
             </ul>
           </div>
 
-          <div className="link-container col-md-2 col-6 mb-3 mb-md-0 pr-0 pr-md-3">
+          <div className="link-container col-md-2 col-6 mb-3 mb-md-0 pe-0 pe-md-3">
             <h5 className="mb-1">Links</h5>
             <ul className="list-unstyled text-small">
               {links?.map((link, index) => {
@@ -68,7 +71,7 @@ export const Footer: FC<FooterProps> = ({
             </ul>
           </div>
 
-          <div className="link-container col-md-2 col-6 mb-3 mb-md-0 pl-0 pl-md-3">
+          <div className="link-container col-md-2 col-6 mb-3 mb-md-0 ps-0 ps-md-3">
             <h5 className="mb-1">Partner</h5>
             <ul className="list-unstyled text-small">
               {partner?.map((link, index) => {
@@ -83,7 +86,7 @@ export const Footer: FC<FooterProps> = ({
             </ul>
           </div>
 
-          <div className="link-container col-md-2 col-6 mb-3 mb-md-0 pr-0 pr-md-3">
+          <div className="link-container col-md-2 col-6 mb-3 mb-md-0 pe-0 pe-md-3">
             <h5 className="mb-1">Sonstiges</h5>
             <ul className="list-unstyled text-small">
               {other?.map((link, index) => {
