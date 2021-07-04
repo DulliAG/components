@@ -1,6 +1,6 @@
 {
   "name": "@dulliag/components",
-  "version": "0.4.0",
+  "version": "0.5.0",
   "author": "tklein1801",
   "description": "ReactJS component libary",
   "keywords": [
@@ -8,6 +8,7 @@
     "reactjs",
     "bootstrap",
     "components",
+    "toast",
     "cookie-disclaimer",
     "breadcrumb",
     "navbar",

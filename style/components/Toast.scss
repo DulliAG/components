@@ -1,0 +1,222 @@
+$maxWidth: 350px;
+$width: 350px;
+$backgroundColor: #333;
+$success: #28a745;
+$info: #007bff;
+$error: #dc3545;
+$borderRadius: 5px;
+$text: rgba(255, 255, 255, 0.8);
+$buttonHover: rgba(255, 255, 255, 0.075);
+$animationInName: fadeInToLeft;
+$animationOutName: fadeOutToRight;
+$animationFillMode: both;
+$animationDuration: 0.3s;
+
+.toast-wrapper {
+  z-index: 1200 !important;
+  position: fixed;
+  bottom: 1em;
+  right: 1em;
+}
+
+.toast {
+  transition: all 150ms;
+  display: flex;
+  align-items: center;
+  width: $width;
+  max-width: $maxWidth;
+  margin-top: 1em;
+  padding: 0.5rem 0.75rem !important;
+  background-color: $backgroundColor !important;
+  border-radius: $borderRadius;
+  -webkit-animation-name: $animationInName;
+  -moz-animation-name: $animationInName;
+  -o-animation-name: $animationInName;
+  animation-name: $animationInName;
+  -webkit-animation-fill-mode: $animationFillMode;
+  -moz-animation-fill-mode: $animationFillMode;
+  -o-animation-fill-mode: $animationFillMode;
+  animation-fill-mode: $animationFillMode;
+  -webkit-animation-duration: $animationDuration;
+  -moz-animation-duration: $animationDuration;
+  -o-animation-duration: $animationDuration;
+  animation-duration: $animationDuration;
+  -webkit-animation-delay: $animationDuration;
+  -moz-animation-delay: $animationDuration;
+  -o-animation-duration: $animationDuration;
+  animation-delay: $animationDuration;
+  &.fadeOut {
+    -webkit-animation-name: $animationOutName;
+    -moz-animation-name: $animationOutName;
+    -o-animation-name: $animationOutName;
+    animation-name: $animationOutName;
+    -webkit-animation-fill-mode: $animationFillMode;
+    -moz-animation-fill-mode: $animationFillMode;
+    -o-animation-fill-mode: $animationFillMode;
+    animation-fill-mode: $animationFillMode;
+    -webkit-animation-duration: $animationDuration;
+    -moz-animation-duration: $animationDuration;
+    -o-animation-duration: $animationDuration;
+    animation-duration: $animationDuration;
+    -webkit-animation-delay: $animationDuration;
+    -moz-animation-delay: $animationDuration;
+    -o-animation-duration: $animationDuration;
+    animation-delay: $animationDuration;
+  }
+
+  .button-container {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    justify-content: flex-end;
+    margin-left: 0.25rem;
+  }
+
+  &.toast-success .toast-icon,
+  &.toast-success .dismiss {
+    color: $success !important;
+  }
+
+  &.toast-info .toast-icon,
+  &.toast-info .dismiss {
+    color: $info !important;
+  }
+
+  &.toast-error .toast-icon,
+  &.toast-error .dismiss {
+    color: $error !important;
+  }
+
+  .toast-icon {
+    margin-right: 0.5rem !important;
+    font-size: 1.5rem;
+    color: $success;
+  }
+
+  .toast-text {
+    font-size: 1rem;
+    color: $text;
+  }
+
+  .dismiss {
+    transition: 150ms;
+    padding: 0.3rem 0.5rem;
+    background-color: transparent;
+    border-radius: $borderRadius;
+    border: none;
+    font-weight: 600;
+    color: $success;
+    &:hover {
+      cursor: pointer;
+      background-color: $buttonHover !important;
+    }
+  }
+}
+@media (max-width: 600px) {
+  .toast-wrapper {
+    left: 2.5%;
+    right: 2.5%;
+  }
+  .toast {
+    width: unset !important;
+    max-width: unset !important;
+  }
+}
+
+@-webkit-keyframes fadeInToLeft {
+  from {
+    opacity: 0;
+    -webkit-transform: translatex(100px);
+    -moz-transform: translatex(100px);
+    -o-transform: translatex(100px);
+    transform: translatex(100px);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: translatex(0);
+    -moz-transform: translatex(0);
+    -o-transform: translatex(0);
+    transform: translatex(0);
+  }
+}
+@-moz-keyframes fadeInToLeft {
+  from {
+    opacity: 0;
+    -webkit-transform: translatex(100px);
+    -moz-transform: translatex(100px);
+    -o-transform: translatex(100px);
+    transform: translatex(100px);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: translatex(0);
+    -moz-transform: translatex(0);
+    -o-transform: translatex(0);
+    transform: translatex(0);
+  }
+}
+@keyframes fadeInToLeft {
+  from {
+    opacity: 0;
+    -webkit-transform: translatex(100px);
+    -moz-transform: translatex(100px);
+    -o-transform: translatex(100px);
+    transform: translatex(100px);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: translatex(0);
+    -moz-transform: translatex(0);
+    -o-transform: translatex(0);
+    transform: translatex(0);
+  }
+}
+
+@-webkit-keyframes fadeOutToRight {
+  from {
+    opacity: 1;
+    -webkit-transform: translatex(0);
+    -moz-transform: translatex(0);
+    -o-transform: translatex(0);
+    transform: translatex(0);
+  }
+  to {
+    opacity: 0;
+    -webkit-transform: translatex(100px);
+    -moz-transform: translatex(100px);
+    -o-transform: translatex(100px);
+    transform: translatex(100px);
+  }
+}
+@-moz-keyframes fadeOutToRight {
+  from {
+    opacity: 1;
+    -webkit-transform: translatex(0);
+    -moz-transform: translatex(0);
+    -o-transform: translatex(0);
+    transform: translatex(0);
+  }
+  to {
+    opacity: 0;
+    -webkit-transform: translatex(100px);
+    -moz-transform: translatex(100px);
+    -o-transform: translatex(100px);
+    transform: translatex(100px);
+  }
+}
+@keyframes fadeOutToRight {
+  from {
+    opacity: 1;
+    -webkit-transform: translatex(0);
+    -moz-transform: translatex(0);
+    -o-transform: translatex(0);
+    transform: translatex(0);
+  }
+  to {
+    opacity: 0;
+    -webkit-transform: translatex(100px);
+    -moz-transform: translatex(100px);
+    -o-transform: translatex(100px);
+    transform: translatex(100px);
+  }
+}

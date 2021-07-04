@@ -4,7 +4,7 @@
 
 - [Installation](#installation)
 - [This package contains](#this-package-contains)
-- [Hwo to build](#how-to-build)
+- [How to build](#how-to-build)
 
 ## Installation
 
@@ -21,10 +21,27 @@ import 'popper.js/dist/popper.min.js';
 import 'jquery/dist/jquery.min.js';
 ```
 
+**Make sure you have `react-router-dom`(`npm i react-routerdom`) (and `npm i @types/react-router-dom -D` if you're using Typescript) installed for using the Breadcrumb, Navbar and Footer**.
+
+Like this
+
+```tsx
+import { BrowserRouter as Router, Switch } from 'react-router-dom';
+import { Navbar, Breadcrumb, Footer } from '@dulliag/components';
+
+<Router>
+  <Navbar />
+  <Breadcrumb />
+  {/* Website content goes here... */}
+  <Footer />
+</Router>;
+```
+
 ## This package contains...
 
 - [CookieDisclaimer](#cookiedisclaimer)
 - [Breadcrumb](#breadcrumb)
+- [Toast](#toast)
 - [Navbar](#navbar)
 - [Footer](#footer)
 
@@ -36,12 +53,75 @@ import { CookieDisclaimer } from '@dulliag/components';
 <CookieDisclaimer />;
 ```
 
-### CookieDisclaimer
+### Breadcrumb
 
 ```tsx
 import { Breadcrumb } from '@dulliag/components';
 
 <Breadcrumb />;
+```
+
+### Toast
+
+```tsx
+import {
+  Toast,
+  ToastList,
+  ToastContext,
+  useToastContext,
+  ToastContextProvider,
+} from '@dulliag/components';
+
+<ToastContextProvider>{/* children */}</ToastContextProvider>;
+```
+
+**How to use...**
+
+> If no `type`-value is given the default type is set to success.
+> You don't need to give an value for `close` and `action`
+
+```tsx
+import React, { FC, useState } from 'react';
+import {
+  CookieDisclaimer,
+  ToastContextProvider,
+  useToastContext,
+  Navbar,
+  Breadcrumb,
+  Footer,
+} from '@dulliag/components';
+
+<ToastContextProvider>
+  <CookieDisclaimer />
+  <Navbar links={...} />
+  <Breadcrumb />
+  <TestSection />
+  <Footer props={...} />
+</ToastContextProvider>
+
+const TestSection: FC = () => {
+  const addToast = useToastContext();
+  const [name, setName] = useState<string>("");
+
+  const handleSubmit = (event: React.FormEvent) => {
+    event.preventDefault();
+    // {
+    //   type: "success" || "info" || "error",
+    //   text: "This some text!",
+    //   close: "ALERT",
+    //   action: () => alert("You have clicked the button!")
+    // }
+    addToast({
+      type: "error",
+      text: `Welcome ${name}`,
+    });
+  }
+
+  return <form onSubmit={handleSubmit}>
+    <input placeholder="Enter your name..." onChange={(e) => setName(e.target.value)}>
+    <button type="submit">Fire toast</button>
+  </form>
+}
 ```
 
 ### Navbar
