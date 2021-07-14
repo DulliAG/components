@@ -1,6 +1,6 @@
 {
   "name": "@dulliag/components",
-  "version": "0.5.0",
+  "version": "0.6.0",
   "author": "tklein1801",
   "description": "ReactJS component libary",
   "keywords": [
@@ -12,7 +12,8 @@
     "cookie-disclaimer",
     "breadcrumb",
     "navbar",
-    "footer"
+    "footer",
+    "spinner"
   ],
   "license": "MIT",
   "main": "dist/index.js",

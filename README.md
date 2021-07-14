@@ -1,7 +1,7 @@
 # @dulliag/components
 
 ![npm](https://img.shields.io/npm/v/@dulliag/components?style=for-the-badge)
-![npm](https://img.shields.io/npm/dt/@dulliag/components?label=Downloads&style=for-the-badge) 
+![npm](https://img.shields.io/npm/dt/@dulliag/components?label=Downloads&style=for-the-badge)
 ![NPM](https://img.shields.io/npm/l/@dulliag/components?style=for-the-badge)
 
 ## Topics
@@ -48,6 +48,7 @@ import { Navbar, Breadcrumb, Footer } from '@dulliag/components';
 - [Toast](#toast)
 - [Navbar](#navbar)
 - [Footer](#footer)
+- [Spinner](#spinner)
 
 ### CookieDisclaimer
 
@@ -151,6 +152,14 @@ import { FooterLink, FooterAd, FooterAuthor, FooterProps, Footer } from '@dullia
   author={FooterAuthor}
   version={string}
 />;
+```
+
+### Spinner
+
+```tsx
+import { Spinner } from '@dulliag/components';
+
+<Spinner />;
 ```
 
 ## How to build

@@ -1,0 +1,12 @@
+@import '../variables.scss';
+
+.spinner {
+  margin: 1rem 0 !important;
+  border-color: $primary !important;
+  border-bottom-color: transparent !important;
+
+  .large {
+    width: 3rem;
+    height: 3rem;
+  }
+}
