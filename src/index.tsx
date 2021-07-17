@@ -16,3 +16,4 @@ export {
   FooterProps,
   Footer,
 } from './Footer';
+export { Spinner } from './Spinner';
