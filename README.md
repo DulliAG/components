@@ -53,17 +53,17 @@ import { Navbar, Breadcrumb, Footer } from '@dulliag/components';
 ### CookieDisclaimer
 
 ```tsx
-import { CookieDisclaimer } from '@dulliag/components';
+import { CookieDisclaimerProps, CookieDisclaimer } from '@dulliag/components';
 
-<CookieDisclaimer />;
+<CookieDisclaimer cookieName="cookies" />;
 ```
 
 ### Breadcrumb
 
 ```tsx
-import { Breadcrumb } from '@dulliag/components';
+import { BreadcrumbProps, Breadcrumb } from '@dulliag/components';
 
-<Breadcrumb />;
+<Breadcrumb defaultPathName="DulliAG" />;
 ```
 
 ### Toast
@@ -135,6 +135,7 @@ const TestSection: FC = () => {
 import { NavbarLink, NavbarProps, Navbar } from '@dulliag/components';
 
 <Navbar
+  brand="DulliAG"
   links={NavbarLink[]}
 />;
 ```
@@ -157,9 +158,9 @@ import { FooterLink, FooterAd, FooterAuthor, FooterProps, Footer } from '@dullia
 ### Spinner
 
 ```tsx
-import { Spinner } from '@dulliag/components';
+import { SpinnerProps, Spinner } from '@dulliag/components';
 
-<Spinner />;
+<Spinner small={true} large={false} />;
 ```
 
 ## How to build

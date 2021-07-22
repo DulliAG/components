@@ -1,17 +1,20 @@
 import React, { useState, useEffect, FC } from 'react';
 import Cookies from 'universal-cookie';
 
-export const Disclaimer: FC = () => {
+export interface DisclaimerProps {
+  cookieName: string;
+}
+export const Disclaimer: FC<DisclaimerProps> = ({ cookieName }) => {
   const cookies = new Cookies();
   const [accepted, setAccepted] = useState<boolean>(false);
 
   const handleCookie = () => {
-    cookies.set('cookies', 'true', { path: '/' });
+    cookies.set(cookieName, 'true', { path: '/' });
     setAccepted(true);
   };
 
   useEffect(() => {
-    var status = cookies.get('cookies');
+    var status = cookies.get(cookieName);
     if (status !== undefined) setAccepted(true);
   }, [accepted]);
 

@@ -5,10 +5,13 @@ export {
   useToastContext,
   ToastContextProvider,
 } from './Toast';
-import Breadcrumb from './Breadcrumb';
-export { Breadcrumb };
+import Breadcrumb, { BreadcrumbProps } from './Breadcrumb';
+export { BreadcrumbProps, Breadcrumb };
 export { NavbarLink, NavbarProps, Navbar } from './Navbar';
-export { Disclaimer as CookieDisclaimer } from './Cookie';
+export {
+  DisclaimerProps as CookieDisclaimerProps,
+  Disclaimer as CookieDisclaimer,
+} from './Cookie';
 export {
   FooterLink,
   FooterAd,
@@ -16,4 +19,4 @@ export {
   FooterProps,
   Footer,
 } from './Footer';
-export { Spinner } from './Spinner';
+export { SpinnerProps, Spinner } from './Spinner';

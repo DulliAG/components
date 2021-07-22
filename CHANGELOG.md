@@ -1,3 +1,30 @@
+## 0.6.2
+
+## Changed
+
+- Cookiename can now be set using the `cookieName`-prop
+- Breadcrumb `defaultPathName`-prop was added
+- Navbar brand name can now get set by `brand`-prop
+- Spinner size can now adjusted using the `small` or `large` props
+
+---
+
+## v0.6.1
+
+## Fixed
+
+- Spinner export was fixed
+
+---
+
+## v0.6.0
+
+## Added
+
+- Spinner component as added to the library
+
+---
+
 ## v0.5.0
 
 ## Added

@@ -8,12 +8,12 @@ export interface NavbarLink {
   value: string;
   path: string;
 }
-
 export interface NavbarProps {
+  brand: string;
   links: NavbarLink[];
 }
 
-export const Navbar: FC<NavbarProps> = ({ links }) => {
+export const Navbar: FC<NavbarProps> = ({ brand, links }) => {
   const [open, setOpen] = useState(false);
 
   const toggle = () => setOpen(!open);
@@ -31,7 +31,7 @@ export const Navbar: FC<NavbarProps> = ({ links }) => {
     <nav className="navbar navbar-expand-lg navbar-light sticky-top">
       <div className="container-fluid px-0">
         <Link className="navbar-brand fw-bold" to="/">
-          DulliAG
+          {brand}
         </Link>
         <button
           className="navbar-toggler"
