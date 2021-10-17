@@ -14,11 +14,19 @@
 
 1. Install the npm-package using `npm i @dulliag/components`
 
-2. Import required files in your index.(js|jsx|ts|tsx)
+2. Import required files in your index.(js|jsx|ts|tsx) and index.html which is located in your public folder
+
+```html
+<head>
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css"
+  />
+</head>
+```
 
 ```tsx
 import '@dulliag/components/style/master.scss';
-import 'remixicon/fonts/remixicon.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.min.js';
 import 'popper.js/dist/popper.min.js';

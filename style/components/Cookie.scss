@@ -1,33 +1,48 @@
 @import '../variables.scss';
-
 .cookie-disclaimer {
-  z-index: 990;
+  z-index: 1200;
   position: fixed;
-  width: 350px;
-  right: 1em;
   bottom: 1em;
-  background-color: $light;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: inherit;
+  padding: 0.55rem;
+  background-color: rgba($color: $primary, $alpha: 0.9);
+  border-radius: 12px;
 
-  .top {
-    padding: 1rem;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
-  }
+  p {
+    color: #fff;
 
-  .bottom {
-    button {
-      padding: 0.75em;
-      width: 100%;
-      background-color: $primary;
-      border: 0;
-      color: white;
-      font-size: 1.05rem;
+    a.marked-link {
+      color: #fff;
+      &::before {
+        background: #fff;
+      }
     }
   }
 
-  @media (max-width: 600px) {
-    width: 95%;
-    left: 2.5%;
-    bottom: 1em;
+  .icon-container {
+    aspect-ratio: 1 / 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    background-color: rgba($color: #fff, $alpha: 0.25);
+
+    button {
+      height: 100%;
+      padding: 0;
+      background-color: transparent;
+      border: 0px;
+      border-radius: 12px;
+    }
+
+    i {
+      padding: 0.5rem;
+      font-size: 1.8rem;
+      color: white;
+    }
   }
 }

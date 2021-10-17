@@ -71,7 +71,6 @@
     "bootstrap": "^5.0.1",
     "jquery": "^3.6.0",
     "popper.js": "^1.16.1",
-    "remixicon": "^2.5.0",
     "universal-cookie": "^4.0.4",
     "node-sass": "^6.0.1",
     "react-router-dom": "^5.2.0"

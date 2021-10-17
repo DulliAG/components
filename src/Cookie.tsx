@@ -14,26 +14,29 @@ export const Disclaimer: FC<DisclaimerProps> = ({ cookieName }) => {
   };
 
   useEffect(() => {
-    var status = cookies.get(cookieName);
+    const status = cookies.get(cookieName);
     if (status !== undefined) setAccepted(true);
   }, [accepted]);
 
   if (accepted) return null;
   return (
-    <div className="cookie-disclaimer shadow rounded">
-      <div className="top text-center">
-        <p>Wir verwenden Cookies!</p>
+    <div className="cookie-disclaimer">
+      <div className="icon-container">
+        <i className="bx bx-cookie"></i>
+      </div>
+      <p className="text-center">
+        Wir verwenden Cookies! <br />
         <a
-          className="marked-link"
           href="https://www.cookiesandyou.com/"
           target="_blank"
+          className="marked-link"
         >
           Mehr Infos...
         </a>
-      </div>
-      <div className="bottom text-center">
-        <button className="rounded" onClick={handleCookie}>
-          Akzeptieren
+      </p>
+      <div className="icon-container">
+        <button onClick={handleCookie}>
+          <i className="bx bx-x"></i>
         </button>
       </div>
     </div>
