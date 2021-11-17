@@ -10,10 +10,11 @@ export interface NavbarLink {
 }
 export interface NavbarProps {
   brand: string;
+  badge?: string;
   links: NavbarLink[];
 }
 
-export const Navbar: FC<NavbarProps> = ({ brand, links }) => {
+export const Navbar: FC<NavbarProps> = ({ brand, badge, links }) => {
   const [open, setOpen] = useState(false);
 
   const toggle = () => setOpen(!open);
@@ -30,9 +31,13 @@ export const Navbar: FC<NavbarProps> = ({ brand, links }) => {
   return (
     <nav className="navbar navbar-expand-lg navbar-light sticky-top">
       <div className="container-fluid px-0">
-        <Link className="navbar-brand fw-bold" to="/">
-          {brand}
-        </Link>
+        <div className="d-flex align-items-center">
+          <Link className="navbar-brand fw-bold py-0" to="/">
+            {brand}
+          </Link>
+          {badge && <span className="navbar-badge rounded">{badge}</span>}
+        </div>
+
         <button
           className="navbar-toggler"
           type="button"

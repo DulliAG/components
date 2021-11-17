@@ -144,6 +144,7 @@ import { NavbarLink, NavbarProps, Navbar } from '@dulliag/components';
 
 <Navbar
   brand="DulliAG"
+  badge="Beta"
   links={NavbarLink[]}
 />;
 ```
