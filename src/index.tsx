@@ -4,19 +4,19 @@ export {
   ToastContext,
   useToastContext,
   ToastContextProvider,
-} from './Toast';
-import Breadcrumb, { BreadcrumbProps } from './Breadcrumb';
+} from './Toast/Toast';
+import Breadcrumb, { BreadcrumbProps } from './Breadcrumb/Breadcrumb';
 export { BreadcrumbProps, Breadcrumb };
-export { NavbarLink, NavbarProps, Navbar } from './Navbar';
+export { NavbarLink, NavbarProps, Navbar } from './Navbar/Navbar';
 export {
   DisclaimerProps as CookieDisclaimerProps,
   Disclaimer as CookieDisclaimer,
-} from './Cookie';
+} from './Cookie/Cookie';
 export {
   FooterLink,
   FooterAd,
   FooterAuthor,
   FooterProps,
   Footer,
-} from './Footer';
-export { SpinnerProps, Spinner } from './Spinner';
+} from './Footer/Footer';
+export { SpinnerProps, Spinner } from './Spinner/Spinner';

@@ -1,5 +1,4 @@
 import React, { useState, useEffect, FC } from 'react';
-// Components
 import { Link, RouteComponentProps, withRouter } from 'react-router-dom';
 
 export interface BreadcrumbProps extends RouteComponentProps<any> {
