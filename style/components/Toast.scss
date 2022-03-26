@@ -1,16 +1,4 @@
-$maxWidth: 350px;
-$width: 350px;
-$backgroundColor: #333;
-$success: #28a745;
-$info: #007bff;
-$error: #dc3545;
-$borderRadius: 5px;
-$text: rgba(255, 255, 255, 0.8);
-$buttonHover: rgba(255, 255, 255, 0.075);
-$animationInName: fadeInToLeft;
-$animationOutName: fadeOutToRight;
-$animationFillMode: both;
-$animationDuration: 0.3s;
+@import '../variables.scss';
 
 .toast-wrapper {
   z-index: 1200 !important;
@@ -23,45 +11,45 @@ $animationDuration: 0.3s;
   transition: all 150ms;
   display: flex;
   align-items: center;
-  width: $width;
-  max-width: $maxWidth;
+  width: $toast_width;
+  max-width: $toast_max_width;
   margin-top: 1em;
   padding: 0.5rem 0.75rem !important;
-  background-color: $backgroundColor !important;
-  border-radius: $borderRadius;
-  -webkit-animation-name: $animationInName;
-  -moz-animation-name: $animationInName;
-  -o-animation-name: $animationInName;
-  animation-name: $animationInName;
-  -webkit-animation-fill-mode: $animationFillMode;
-  -moz-animation-fill-mode: $animationFillMode;
-  -o-animation-fill-mode: $animationFillMode;
-  animation-fill-mode: $animationFillMode;
-  -webkit-animation-duration: $animationDuration;
-  -moz-animation-duration: $animationDuration;
-  -o-animation-duration: $animationDuration;
-  animation-duration: $animationDuration;
-  -webkit-animation-delay: $animationDuration;
-  -moz-animation-delay: $animationDuration;
-  -o-animation-duration: $animationDuration;
-  animation-delay: $animationDuration;
+  background-color: $toast_background !important;
+  border-radius: $toast_border_radius;
+  -webkit-animation-name: $toast_fade_in_animation;
+  -moz-animation-name: $toast_fade_in_animation;
+  -o-animation-name: $toast_fade_in_animation;
+  animation-name: $toast_fade_in_animation;
+  -webkit-animation-fill-mode: $toast_fill_mode;
+  -moz-animation-fill-mode: $toast_fill_mode;
+  -o-animation-fill-mode: $toast_fill_mode;
+  animation-fill-mode: $toast_fill_mode;
+  -webkit-animation-duration: $toast_animation_duration;
+  -moz-animation-duration: $toast_animation_duration;
+  -o-animation-duration: $toast_animation_duration;
+  animation-duration: $toast_animation_duration;
+  -webkit-animation-delay: $toast_animation_duration;
+  -moz-animation-delay: $toast_animation_duration;
+  -o-animation-duration: $toast_animation_duration;
+  animation-delay: $toast_animation_duration;
   &.fadeOut {
-    -webkit-animation-name: $animationOutName;
-    -moz-animation-name: $animationOutName;
-    -o-animation-name: $animationOutName;
-    animation-name: $animationOutName;
-    -webkit-animation-fill-mode: $animationFillMode;
-    -moz-animation-fill-mode: $animationFillMode;
-    -o-animation-fill-mode: $animationFillMode;
-    animation-fill-mode: $animationFillMode;
-    -webkit-animation-duration: $animationDuration;
-    -moz-animation-duration: $animationDuration;
-    -o-animation-duration: $animationDuration;
-    animation-duration: $animationDuration;
-    -webkit-animation-delay: $animationDuration;
-    -moz-animation-delay: $animationDuration;
-    -o-animation-duration: $animationDuration;
-    animation-delay: $animationDuration;
+    -webkit-animation-name: $toast_fade_out_animation;
+    -moz-animation-name: $toast_fade_out_animation;
+    -o-animation-name: $toast_fade_out_animation;
+    animation-name: $toast_fade_out_animation;
+    -webkit-animation-fill-mode: $toast_fill_mode;
+    -moz-animation-fill-mode: $toast_fill_mode;
+    -o-animation-fill-mode: $toast_fill_mode;
+    animation-fill-mode: $toast_fill_mode;
+    -webkit-animation-duration: $toast_animation_duration;
+    -moz-animation-duration: $toast_animation_duration;
+    -o-animation-duration: $toast_animation_duration;
+    animation-duration: $toast_animation_duration;
+    -webkit-animation-delay: $toast_animation_duration;
+    -moz-animation-delay: $toast_animation_duration;
+    -o-animation-duration: $toast_animation_duration;
+    animation-delay: $toast_animation_duration;
   }
 
   .button-container {
@@ -95,20 +83,20 @@ $animationDuration: 0.3s;
 
   .toast-text {
     font-size: 1rem;
-    color: $text;
+    color: $toast_text;
   }
 
   .dismiss {
     transition: 150ms;
     padding: 0.3rem 0.5rem;
     background-color: transparent;
-    border-radius: $borderRadius;
+    border-radius: $toast_border_radius;
     border: none;
     font-weight: 600;
     color: $success;
     &:hover {
       cursor: pointer;
-      background-color: $buttonHover !important;
+      background-color: $toast_button_hover_background !important;
     }
   }
 }
@@ -123,6 +111,11 @@ $animationDuration: 0.3s;
   }
 }
 
+//
+// Animations
+//
+
+// Fade-in
 @-webkit-keyframes fadeInToLeft {
   from {
     opacity: 0;
@@ -172,6 +165,7 @@ $animationDuration: 0.3s;
   }
 }
 
+// Fade-out
 @-webkit-keyframes fadeOutToRight {
   from {
     opacity: 1;

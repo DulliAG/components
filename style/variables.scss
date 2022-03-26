@@ -1,3 +1,19 @@
+// Colors
 $primary: #28a745;
+$success: #28a745;
+$info: #007bff;
+$error: #dc3545;
 $light: #f8f9fa;
 $text: #212529;
+
+// Toasts
+$toast_max_width: 350px;
+$toast_width: 350px;
+$toast_border_radius: 5px;
+$toast_background: #333;
+$toast_text: rgba(255, 255, 255, 0.8);
+$toast_fade_in_animation: fadeInToLeft;
+$toast_fade_out_animation: fadeOutToRight;
+$toast_fill_mode: both;
+$toast_animation_duration: 0.3s;
+$toast_button_hover_background: rgba(255, 255, 255, 0.8);
