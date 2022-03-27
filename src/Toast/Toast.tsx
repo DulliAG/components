@@ -1,28 +1,23 @@
 import React, { FC, createContext, useState, useMemo, useEffect } from 'react';
 
 export interface IToast {
-  type?: 'success' | 'error' | 'info';
+  type?: 'success' | 'info' | 'error';
   text: string;
-  close?: {
-    text: string;
-    action?: () => void;
-  };
+  close?: { text: string; action: () => void };
 }
 
 interface IToastContext {
   toasts: IToast[];
   setToasts: React.Dispatch<React.SetStateAction<IToast[]>>;
+  addToast: (toast: IToast) => void;
 }
 
-export const ToastContext = createContext({} as IToastContext);
+export const ToastContext = createContext<IToastContext>({} as IToastContext);
 
 export const ToastContextProvider: FC = ({ children }) => {
   const [toasts, setToasts] = useState<IToast[]>([]);
 
-  const providerValue = useMemo(() => ({ toasts, setToasts }), [
-    toasts,
-    setToasts,
-  ]);
+  const addToast = (toast: IToast) => setToasts(list => [...list, toast]);
 
   useEffect(() => {
     if (toasts.length <= 0) return;
@@ -31,7 +26,13 @@ export const ToastContextProvider: FC = ({ children }) => {
   }, [toasts]);
 
   return (
-    <ToastContext.Provider value={providerValue}>
+    <ToastContext.Provider
+      value={useMemo(() => ({ toasts, setToasts, addToast }), [
+        toasts,
+        setToasts,
+        addToast,
+      ])}
+    >
       {children}
       <div className="toast-wrapper">
         {toasts.map((toast, index) => {
