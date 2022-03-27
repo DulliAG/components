@@ -111,19 +111,30 @@ import {
 </ToastContextProvider>
 
 const TestSection: FC = () => {
-  const {toasts, setToasts} = useContext(ToastContext);
+  const { toasts, setToasts, addToast } = useContext(ToastContext);
   const [name, setName] = useState<string>("");
 
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
-    setToasts(list => [...list, {
+
+    // It's not recommended to use setToasts, use addToast instead to push a new toast
+    // setToasts(list => [...list, {
+    //   type: "info",
+    //   text: `Welcome ${name}`,
+    //   close: {
+    //     text: "Logout",
+    //     action: () => {/*code...*/}
+    //   }
+    // }])
+
+    addToast({
       type: "info",
       text: `Welcome ${name}`,
       close: {
         text: "Logout",
         action: () => {/*code...*/}
       }
-    }])
+    });
   }
 
   return (
