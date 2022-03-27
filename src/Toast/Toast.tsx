@@ -1,29 +1,28 @@
-import React, {
-  FC,
-  createContext,
-  useCallback,
-  useState,
-  useEffect,
-  useContext,
-} from 'react';
+import React, { FC, createContext, useState, useMemo, useEffect } from 'react';
 
-export interface Toast {
-  type?: string;
+export interface IToast {
+  type?: 'success' | 'error' | 'info';
   text: string;
-  close?: string;
-  action?: Function;
+  close?: {
+    text: string;
+    action?: () => void;
+  };
 }
 
-export type ToastList = Array<Toast>;
-
-export const ToastContext = createContext<any>(() => {});
-
-export function useToastContext() {
-  return useContext(ToastContext);
+interface IToastContext {
+  toasts: IToast[];
+  setToasts: React.Dispatch<React.SetStateAction<IToast[]>>;
 }
 
-export const ToastContextProvider: FC<{ children: any }> = ({ children }) => {
-  const [toasts, setToasts] = useState<ToastList>([]);
+export const ToastContext = createContext({} as IToastContext);
+
+export const ToastContextProvider: FC = ({ children }) => {
+  const [toasts, setToasts] = useState<IToast[]>([]);
+
+  const providerValue = useMemo(() => ({ toasts, setToasts }), [
+    toasts,
+    setToasts,
+  ]);
 
   useEffect(() => {
     if (toasts.length <= 0) return;
@@ -31,31 +30,20 @@ export const ToastContextProvider: FC<{ children: any }> = ({ children }) => {
     return () => clearTimeout(timer);
   }, [toasts]);
 
-  const addToast = useCallback(
-    function(toast) {
-      setToasts(toasts => [...toasts, toast]);
-    },
-    [setToasts]
-  );
-
   return (
-    <ToastContext.Provider value={addToast}>
+    <ToastContext.Provider value={providerValue}>
       {children}
       <div className="toast-wrapper">
         {toasts.map((toast, index) => {
-          var classes = 'toast',
+          let classes = 'toast',
             icon = 'toast-icon';
 
           switch (toast.type) {
-            case 'ERROR':
-            case 'Error':
             case 'error':
               classes += ' toast-error';
               icon += ' ri-error-warning-line';
               break;
 
-            case 'INFO':
-            case 'Info':
             case 'info':
               classes += ' toast-info';
               icon += ' ri-information-line';
@@ -71,10 +59,10 @@ export const ToastContextProvider: FC<{ children: any }> = ({ children }) => {
             <div key={index} className={classes}>
               <i className={icon} />
               <p className="toast-text">{toast.text}</p>
-              {toast.close !== undefined && (
+              {toast.close && (
                 <div className="button-container">
-                  <button className="dismiss" onClick={() => toast.action}>
-                    {toast.close}
+                  <button className="dismiss" onClick={toast.close.action}>
+                    {toast.close.text}
                   </button>
                 </div>
               )}

@@ -1,10 +1,4 @@
-export {
-  Toast,
-  ToastList,
-  ToastContext,
-  useToastContext,
-  ToastContextProvider,
-} from './Toast/Toast';
+export { IToast, ToastContext, ToastContextProvider } from './Toast/Toast';
 import Breadcrumb, { BreadcrumbProps } from './Breadcrumb/Breadcrumb';
 export { BreadcrumbProps, Breadcrumb };
 export { NavbarLink, NavbarProps, Navbar } from './Navbar/Navbar';

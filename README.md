@@ -78,10 +78,8 @@ import { BreadcrumbProps, Breadcrumb } from '@dulliag/components';
 
 ```tsx
 import {
-  Toast,
-  ToastList,
+  IToast,
   ToastContext,
-  useToastContext,
   ToastContextProvider,
 } from '@dulliag/components';
 
@@ -91,14 +89,14 @@ import {
 **How to use...**
 
 > If no `type`-value is given the default type is set to success.
-> You don't need to give an value for `close` and `action`
+> You don't need to give an value for `close`
 
 ```tsx
-import React, { FC, useState } from 'react';
+import React, { FC, useContext, useState } from 'react';
 import {
   CookieDisclaimer,
   ToastContextProvider,
-  useToastContext,
+  ToastContext,
   Navbar,
   Breadcrumb,
   Footer,
@@ -113,27 +111,27 @@ import {
 </ToastContextProvider>
 
 const TestSection: FC = () => {
-  const addToast = useToastContext();
+  const {toasts, setToasts} = useContext(ToastContext);
   const [name, setName] = useState<string>("");
 
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
-    // {
-    //   type: "success" || "info" || "error",
-    //   text: "This some text!",
-    //   close: "ALERT",
-    //   action: () => alert("You have clicked the button!")
-    // }
-    addToast({
-      type: "error",
+    setToasts(list => [...list, {
+      type: "info",
       text: `Welcome ${name}`,
-    });
+      close: {
+        text: "Logout",
+        action: () => {/*code...*/}
+      }
+    }])
   }
 
-  return <form onSubmit={handleSubmit}>
-    <input placeholder="Enter your name..." onChange={(e) => setName(e.target.value)}>
-    <button type="submit">Fire toast</button>
-  </form>
+  return (
+    <form onSubmit={handleSubmit}>
+      <input placeholder="Enter your name..." onChange={(e) => setName(e.target.value)}>
+      <button type="submit">Fire toast</button>
+    </form>
+  );
 }
 ```
 
