@@ -56,11 +56,11 @@ export const Navbar: FC<NavbarProps> = ({ brand, badge, links }) => {
         </button>
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
-            {links.map((link, index) => {
-              if (!link.show) return;
-              if (link.link) {
-                return (
-                  <li key={index} className="nav-item">
+            {links
+              .filter(link => link.show)
+              .map((link, index) => (
+                <li key={index} className="nav-item">
+                  {link.link ? (
                     <Link
                       id={link.name}
                       className="link nav-link"
@@ -69,11 +69,7 @@ export const Navbar: FC<NavbarProps> = ({ brand, badge, links }) => {
                     >
                       {link.value}
                     </Link>
-                  </li>
-                );
-              } else {
-                return (
-                  <li key={index} className="nav-item">
+                  ) : (
                     <a
                       id={link.name}
                       className="link nav-link"
@@ -82,10 +78,9 @@ export const Navbar: FC<NavbarProps> = ({ brand, badge, links }) => {
                     >
                       {link.value}
                     </a>
-                  </li>
-                );
-              }
-            })}
+                  )}
+                </li>
+              ))}
           </ul>
         </div>
       </div>

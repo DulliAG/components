@@ -39,7 +39,7 @@ const Breadcrumb: FC<BreadcrumbProps> = ({ history, defaultPathName }) => {
         });
       }
     });
-  }, []);
+  }, [history, defaultPathName]);
 
   return (
     <nav>

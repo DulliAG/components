@@ -10,7 +10,7 @@ export const Spinner: FC<SpinnerProps> = ({ size = 'small' }) => {
   return (
     <div
       className={
-        size == 'small'
+        size === 'small'
           ? 'spinner spinner-border'
           : 'spinner large spinner-border'
       }

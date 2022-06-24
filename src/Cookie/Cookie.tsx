@@ -16,7 +16,7 @@ export const Disclaimer: FC<DisclaimerProps> = ({ cookieName }) => {
   useEffect(() => {
     const status = cookies.get(cookieName);
     if (status !== undefined) setAccepted(true);
-  }, [accepted]);
+  }, [accepted, cookieName, cookies]);
 
   if (accepted) return null;
   return (
@@ -28,6 +28,7 @@ export const Disclaimer: FC<DisclaimerProps> = ({ cookieName }) => {
         Wir verwenden Cookies! <br />
         <a
           href="https://www.cookiesandyou.com/"
+          rel="noreferrer"
           target="_blank"
           className="marked-link"
         >
