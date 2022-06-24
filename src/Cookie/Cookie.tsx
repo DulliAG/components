@@ -1,4 +1,4 @@
-import React, { useState, useEffect, FC } from 'react';
+import React, { FC, useEffect, useState } from 'react';
 import Cookies from 'universal-cookie';
 
 export interface DisclaimerProps {
@@ -8,14 +8,13 @@ export const Disclaimer: FC<DisclaimerProps> = ({ cookieName }) => {
   const cookies = new Cookies();
   const [accepted, setAccepted] = useState<boolean>(false);
 
-  const handleCookie = () => {
+  const handleDisclaimerInteraction = () => {
     cookies.set(cookieName, 'true', { path: '/' });
     setAccepted(true);
   };
 
   useEffect(() => {
-    const status = cookies.get(cookieName);
-    if (status !== undefined) setAccepted(true);
+    setAccepted(cookies.get(cookieName) ? true : false);
   }, [accepted, cookieName, cookies]);
 
   if (accepted) return null;
@@ -36,7 +35,7 @@ export const Disclaimer: FC<DisclaimerProps> = ({ cookieName }) => {
         </a>
       </p>
       <div className="icon-container">
-        <button onClick={handleCookie}>
+        <button onClick={handleDisclaimerInteraction}>
           <i className="bx bx-x"></i>
         </button>
       </div>
