@@ -1,4 +1,11 @@
-import React, { FC, createContext, useState, useMemo, useEffect } from 'react';
+import React, {
+  FC,
+  createContext,
+  useState,
+  useMemo,
+  useEffect,
+  PropsWithChildren,
+} from 'react';
 
 export interface IToast {
   type?: 'success' | 'info' | 'error';
@@ -14,7 +21,7 @@ interface IToastContext {
 
 export const ToastContext = createContext<IToastContext>({} as IToastContext);
 
-export const ToastContextProvider: FC = ({ children }) => {
+export const ToastContextProvider: FC<PropsWithChildren> = ({ children }) => {
   const [toasts, setToasts] = useState<IToast[]>([]);
 
   const addToast = (toast: IToast) => setToasts(list => [...list, toast]);

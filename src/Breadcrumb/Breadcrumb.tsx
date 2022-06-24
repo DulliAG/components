@@ -1,21 +1,19 @@
-import React, { useState, useEffect, FC } from 'react';
-import { Link, RouteComponentProps, withRouter } from 'react-router-dom';
+import React, { FC, useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 
-export interface BreadcrumbProps extends RouteComponentProps<any> {
+export interface BreadcrumbProps {
   defaultPathName: string;
 }
-const Breadcrumb: FC<BreadcrumbProps> = ({ history, defaultPathName }) => {
-  type PathList = Array<String>;
-  const [path, setPath] = useState<PathList>([]);
+const Breadcrumb: FC<BreadcrumbProps> = ({ defaultPathName }) => {
+  const [path, setPath] = useState<string[]>([]);
 
   useEffect(() => {
-    let list: PathList = [];
-    let pathname = history.location.pathname,
+    let list: string[] = [];
+    let pathname = window.location.pathname,
       splitted = pathname.split('/');
 
     if (pathname === '/' && splitted.length === 2) {
-      list.push(defaultPathName);
-      setPath(list);
+      setPath([defaultPathName]);
     } else {
       splitted.forEach(slug => {
         var slugname = slug === '' ? defaultPathName : slug;
@@ -23,22 +21,6 @@ const Breadcrumb: FC<BreadcrumbProps> = ({ history, defaultPathName }) => {
         setPath(list);
       });
     }
-
-    history.listen(location => {
-      list = [];
-      let newPathname = location.pathname,
-        splitted = newPathname.split('/');
-      if (newPathname === '/' && splitted.length === 2) {
-        list.push(defaultPathName);
-        setPath(list);
-      } else {
-        splitted.forEach(slug => {
-          var slugname = slug === '' ? defaultPathName : slug;
-          list.push(slugname);
-          setPath(list);
-        });
-      }
-    });
   }, [history, defaultPathName]);
 
   return (
@@ -68,4 +50,4 @@ const Breadcrumb: FC<BreadcrumbProps> = ({ history, defaultPathName }) => {
   );
 };
 
-export default withRouter(Breadcrumb);
+export default Breadcrumb;
