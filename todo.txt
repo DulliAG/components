@@ -1,0 +1,17 @@
+- Snackbar
+- Navbar
+- Breadcrumb
+- Footer (nur mit Copyright und Datum)
+- Footer (Mit Links etc)
+- Card
+- Button
+- Dropdown
+- Link (wie auf tklein.it)
+- Drawer
+- Theme (Bootstrap Farben & unser grün)
+- Spinner
+
+Beispiele:
+- SPA
+- Anwendung mit Drawer
+- Anwendung mit Drawer (Drawer nur bei mobiler Version, Desktop mit Navbar)
