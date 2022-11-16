@@ -26,17 +26,17 @@ export const theme = createTheme({
     },
     divider: 'rgba(194, 224, 255, 0.08)',
     background: {
-      default: '#001E3C',
-      paper: '#001E3C',
+      default: '#fff',
+      paper: '#f8f9fa',
     },
     common: {
       black: '#1D1D1D',
       white: '#fff',
     },
     text: {
-      primary: '#fff',
-      secondary: '#B2BAC2',
-      disabled: 'rgba(255, 255, 255, 0.5)',
+      primary: '#212529',
+      secondary: '#333',
+      disabled: '#252525',
     },
     grey: {
       '50': '#F3F6F9',
@@ -259,11 +259,11 @@ export const theme = createTheme({
   mixins: {
     toolbar: {
       minHeight: 56,
-      '@media (min-width:0px)': {
-        '@media (orientation: landscape)': {
-          minHeight: 48,
-        },
-      },
+      // '@media (min-width:0px)': {
+      //   '@media (orientation: landscape)': {
+      //     minHeight: 48,
+      //   },
+      // },
       '@media (min-width:600px)': {
         minHeight: 64,
       },
@@ -300,7 +300,8 @@ export const theme = createTheme({
     easing: {
       easeInOut: 'cubic-bezier(0.4, 0, 0.2, 1)',
       easeOut: 'cubic-bezier(0.0, 0, 0.2, 1)',
-      easeIn: 'cubic-bezier(0.4, 0, 1, 1)',
+      easeIn: 'cubic-bezier(0.0, 0, 0.2, 1)',
+      // easeIn: 'cubic-bezier(0.4, 0, 1, 1)',
       sharp: 'cubic-bezier(0.4, 0, 0.6, 1)',
     },
     duration: {
@@ -310,7 +311,8 @@ export const theme = createTheme({
       standard: 300,
       complex: 375,
       enteringScreen: 225,
-      leavingScreen: 195,
+      leavingScreen: 225,
+      // leavingScreen: 195,
     },
   },
   zIndex: {
