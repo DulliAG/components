@@ -1,0 +1,48 @@
+{
+  "name": "simple-website",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@dulliag/components": "file:../..",
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "^13.4.0",
+    "@testing-library/user-event": "^13.5.0",
+    "@emotion/react": "file:../../node_modules/@emotion/react",
+    "@emotion/styled": "file:../../node_modules/@emotion/styled",
+    "@mui/icons-material": "file:../../node_modules/@mui/icons-material",
+    "@mui/material": "file:../../node_modules/@mui/material",
+    "@types/jest": "^27.5.2",
+    "@types/node": "^16.18.3",
+    "@types/react": "^18.0.25",
+    "@types/react-dom": "^18.0.8",
+    "react": "file:../../node_modules/react",
+    "react-dom": "file:../../node_modules/react-dom",
+    "react-scripts": "file:../../node_modules/react-scripts",
+    "typescript": "^4.8.4",
+    "web-vitals": "^2.1.4"
+  },
+  "scripts": {
+    "start": "node ../../node_modules/react-scripts/bin/react-scripts.js start",
+    "build": "node ../../node_modules/react-scripts/bin/react-scripts.js build",
+    "test": "node ../../node_modules/react-scripts/bin/react-scripts.js test",
+    "eject": "node ../../node_modules/react-scripts/bin/react-scripts.js eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}

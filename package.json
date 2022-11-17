@@ -1,95 +1,62 @@
 {
   "name": "@dulliag/components",
-  "version": "0.7.1",
-  "author": "tklein1801",
-  "description": "ReactJS component libary",
-  "keywords": [
-    "dulliag",
-    "reactjs",
-    "bootstrap",
-    "components",
-    "toast",
-    "cookie-disclaimer",
-    "breadcrumb",
-    "navbar",
-    "footer",
-    "spinner"
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
+  "files": [
+    "dist"
   ],
-  "license": "MIT",
-  "main": "dist/index.js",
-  "typings": "dist/index.d.ts",
-  "module": "dist/components.esm.js",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com",
+    "access": "public"
+  },
   "homepage": "https://dulliag.de",
   "repository": {
     "type": "git",
-    "url": "https://github.com/DulliAG/dulliag-components.git"
+    "url": "https://github.com/DulliAG/components.git"
   },
   "bugs": {
-    "url": "https://github.com/DulliAG/dulliag-components/issues"
-  },
-  "files": [
-    "dist",
-    "src",
-    "style"
-  ],
-  "engines": {
-    "node": ">=10"
+    "url": "https://github.com/DulliAG/components/issues"
   },
   "scripts": {
-    "start": "tsdx watch",
-    "build": "tsdx build",
-    "test": "tsdx test --passWithNoTests",
-    "lint": "tsdx lint",
-    "prepare": "tsdx build",
-    "size": "size-limit",
-    "analyze": "size-limit --why"
+    "build": "npm run build:esm && npm run build:cjs",
+    "build:esm": "tsc",
+    "build:cjs": "tsc --module CommonJS --outDir dist/cjs",
+    "prepare": "husky install",
+    "test": "echo \"ERROR: No tests specified\" && exit 0",
+    "prettier:check": "prettier --check src/",
+    "prettier:format": "prettier --write src/"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "tsdx lint"
-    }
-  },
-  "prettier": {
-    "printWidth": 80,
-    "semi": true,
-    "singleQuote": true,
-    "trailingComma": "es5"
-  },
-  "size-limit": [
-    {
-      "path": "dist/components.cjs.production.min.js",
-      "limit": "10 KB"
-    },
-    {
-      "path": "dist/components.esm.js",
-      "limit": "10 KB"
-    }
-  ],
-  "dependencies": {
-    "@popperjs/core": "^2.9.2",
-    "bootstrap": "^5.0.1",
-    "jquery": "^3.6.0",
-    "node-sass": "^6.0.1",
-    "popper.js": "^1.16.1",
+  "author": "tklein1801",
+  "license": "MIT",
+  "devDependencies": {
+    "@emotion/react": "^11.9.3",
+    "@emotion/styled": "^11.9.3",
+    "@mui/icons-material": "^5.8.4",
+    "@mui/material": "^5.8.4",
+    "@trivago/prettier-plugin-sort-imports": "^3.4.0",
+    "@types/node": "^18.11.9",
+    "@types/react": "^18.0.25",
+    "@types/react-dom": "^18.0.8",
+    "husky": "^8.0.2",
+    "prettier": "^2.7.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-router-dom": "^6.3.0",
+    "typescript": "^4.8.4",
     "universal-cookie": "^4.0.4"
   },
-  "devDependencies": {
-    "@size-limit/preset-small-lib": "^5.0.1",
-    "@types/react": "^18.0.14",
-    "@types/react-dom": "^18.0.5",
-    "husky": "^6.0.0",
-    "size-limit": "^5.0.1",
-    "tsdx": "^0.14.1",
-    "tslib": "^2.3.0",
-    "typescript": "^4.3.4"
-  },
   "peerDependencies": {
-    "react": ">=17",
-    "react-dom": ">=17",
-    "@types/react": ">=17",
-    "@types/react-dom": ">=17"
+    "@emotion/react": "^11.9.3",
+    "@emotion/styled": "^11.9.3",
+    "@mui/icons-material": "^5.8.4",
+    "@mui/material": "^5.8.4",
+    "react": ">=18",
+    "react-dom": ">=18",
+    "react-router-dom": "^6.4.3",
+    "universal-cookie": "^4.0.4"
+  },
+  "dependencies": {
+    "react-scripts": "^5.0.1"
   }
 }
