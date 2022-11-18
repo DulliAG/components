@@ -30,14 +30,16 @@ export default function DrawerApp() {
           <List>
             {[
               {
-                label: 'Dashboard',
+                label: 'Simple Website',
                 icon: <DashboardIcon />,
-                path: '/app-with-drawer',
+                path: '/simple-website',
+                routerLink: true,
               },
               {
-                label: 'Dashboard',
+                label: 'App with Drawer',
                 icon: <DashboardIcon />,
                 path: '/app-with-drawer',
+                routerLink: true,
               },
             ].map((link, index) => (
               <DrawerLink key={link.label + index} {...link} onClick={() => {}} />
