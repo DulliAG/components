@@ -88,8 +88,8 @@ export default function Website() {
           {
             heading: 'Allgemeines',
             links: [
-              { text: 'Impressum', href: 'https://dulliag.de/Impressum' },
-              { text: 'Datenschutz', href: 'https://dulliag.de/Datenschutz' },
+              { text: 'Impressum', href: '/Impressum', routerLink: true },
+              { text: 'Datenschutz', href: '/Datenschutz', routerLink: true },
             ],
           },
           {

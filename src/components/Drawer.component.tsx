@@ -2,6 +2,7 @@ import { Box, Drawer as MuiDrawer, DrawerProps as MuiDrawerProps, styled } from 
 import { ListItem, ListItemButton, ListItemIcon, ListItemText } from '@mui/material';
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { LinkRouter } from './RouterLink.component';
 
 export const drawerWidth = 260;
 
@@ -10,11 +11,29 @@ export interface DrawerLinkProps {
   icon: JSX.Element | React.ReactNode;
   path: string;
   onClick: () => void;
+  routerLink?: boolean;
+  disablePadding?: boolean;
 }
-export const DrawerLink: React.FC<DrawerLinkProps> = ({ label, icon, path, onClick }) => {
-  return (
+export const DrawerLink: React.FC<DrawerLinkProps> = ({
+  label,
+  icon,
+  path,
+  onClick,
+  routerLink,
+  disablePadding = false,
+}) => {
+  return routerLink ? (
+    <LinkRouter onClick={onClick} to={path} sx={{ textDecoration: 'none', color: 'unset' }}>
+      <ListItem disablePadding={disablePadding}>
+        <ListItemButton sx={{ borderRadius: (theme) => `${theme.shape.borderRadius}px` }}>
+          <ListItemIcon>{icon}</ListItemIcon>
+          <ListItemText primary={label} />
+        </ListItemButton>
+      </ListItem>
+    </LinkRouter>
+  ) : (
     <Link onClick={onClick} to={path} style={{ textDecoration: 'none', color: 'unset' }}>
-      <ListItem /*disablePadding*/>
+      <ListItem disablePadding={disablePadding}>
         <ListItemButton sx={{ borderRadius: (theme) => `${theme.shape.borderRadius}px` }}>
           <ListItemIcon>{icon}</ListItemIcon>
           <ListItemText primary={label} />

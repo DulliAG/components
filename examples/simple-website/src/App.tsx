@@ -9,6 +9,7 @@ export default function App() {
         <Route path="/" element={<Navigate to="/simple-website" />} />
         <Route path="/simple-website" element={<SimpleWebsite />} />
         <Route path="/app-with-drawer" element={<AppWithDrawer />} />
+        <Route path="/*" element={<h1>Page not found</h1>} />
       </Routes>
     </BrowserRouter>
   );

@@ -1,5 +1,6 @@
 import { Box, BoxProps, Grid, Link, Typography } from '@mui/material';
 import React from 'react';
+import { LinkRouter } from './RouterLink.component';
 
 export interface FooterCategory {
   heading: string;
@@ -9,6 +10,7 @@ export interface FooterCategory {
 export interface FooterLink {
   text: string;
   href: string;
+  routerLink?: boolean;
 }
 
 export interface BaseFooterProps extends BoxProps {
@@ -55,23 +57,41 @@ export const Footer: React.FC<FooterProps> = (props) => {
                   {heading}
                 </Typography>
                 <Box sx={{ display: 'flex', flexDirection: 'column' }}>
-                  {links.map((link) => (
-                    <Link
-                      key={heading + link.text + index}
-                      sx={{
-                        transition: 'color 100ms',
-                        textDecoration: 'none',
-                        color: (theme) => 'rgba(255, 255, 255, 0.6)',
-                        '&:hover': {
+                  {links.map(({ text, href, routerLink }, index) =>
+                    routerLink ? (
+                      <LinkRouter
+                        key={text}
+                        to={href}
+                        sx={{
+                          transition: 'color 100ms',
                           textDecoration: 'none',
-                          color: (theme) => theme.palette.primary.main,
-                        },
-                      }}
-                      href={link.href}
-                    >
-                      {link.text}
-                    </Link>
-                  ))}
+                          color: (theme) => 'rgba(255, 255, 255, 0.6)',
+                          '&:hover': {
+                            textDecoration: 'none',
+                            color: (theme) => theme.palette.primary.main,
+                          },
+                        }}
+                      >
+                        {text}
+                      </LinkRouter>
+                    ) : (
+                      <Link
+                        key={heading + text + index}
+                        sx={{
+                          transition: 'color 100ms',
+                          textDecoration: 'none',
+                          color: (theme) => 'rgba(255, 255, 255, 0.6)',
+                          '&:hover': {
+                            textDecoration: 'none',
+                            color: (theme) => theme.palette.primary.main,
+                          },
+                        }}
+                        href={href}
+                      >
+                        {text}
+                      </Link>
+                    )
+                  )}
                 </Box>
               </Grid>
             ))}
