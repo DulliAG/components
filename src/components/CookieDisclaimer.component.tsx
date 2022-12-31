@@ -29,7 +29,7 @@ export const CookieDisclaimer: React.FC<CookieDisclaimerProps> = ({ text, link, 
   return (
     <Box
       sx={{
-        position: 'fixed',
+        position: 'absolute',
         bottom: (theme) => theme.spacing(2),
         left: (theme) => theme.spacing(2),
         right: (theme) => theme.spacing(2),
