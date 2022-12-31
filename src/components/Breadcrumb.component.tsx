@@ -32,7 +32,7 @@ export const BreadcrumbLink: React.FC<BreadcrumbLinkProps> = ({
         sx={{
           transition: 'color 100ms',
           textDecoration: 'none',
-          color: last ? theme.palette.primary.main : theme.palette.primary.contrastText,
+          color: last ? theme.palette.primary.main : theme.palette.text.primary,
           '&:hover': {
             color: last ? theme.palette.primary.dark : theme.palette.primary.main,
           },
@@ -47,7 +47,7 @@ export const BreadcrumbLink: React.FC<BreadcrumbLinkProps> = ({
       sx={{
         transition: 'color 100ms',
         textDecoration: 'none',
-        color: (theme) => (last ? theme.palette.primary.main : theme.palette.primary.contrastText),
+        color: (theme) => (last ? theme.palette.primary.main : theme.palette.text.primary),
         '&:hover': {
           color: (theme) => (last ? theme.palette.primary.dark : theme.palette.primary.main),
         },
@@ -69,17 +69,13 @@ export const Breadcrumb: React.FC<BreadcrumbProps> = (props) => {
         zIndex: (theme) => theme.zIndex.appBar,
         px: { xs: 2, md: 6 },
         py: 1,
-        backgroundColor: '#333',
-        color: (theme) => theme.palette.primary.contrastText,
+        backgroundColor: (theme) => theme.palette.background.default,
+        borderTop: (theme) => `1.5px solid ${theme.palette.divider}`,
+        borderBottom: (theme) => `1.5px solid ${theme.palette.divider}`,
         ...props.sx,
       }}
     >
-      <MuiBreadcrumb
-        aria-label="breadcrumb"
-        separator={separator}
-        maxItems={maxItems}
-        sx={{ color: (theme) => theme.palette.primary.contrastText }}
-      >
+      <MuiBreadcrumb aria-label="breadcrumb" separator={separator} maxItems={maxItems}>
         {links.map((link, index, list) => (
           <BreadcrumbLink key={link.text + link.href} last={index + 1 === list.length} {...link} />
         ))}

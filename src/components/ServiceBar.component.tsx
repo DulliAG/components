@@ -23,9 +23,9 @@ const AvatarStyle: SxProps<Theme> = {
 };
 
 export interface ServiceBarProps extends ToolbarProps {
-  onSignUp: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
-  onSignIn: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
-  onSignOut: (event: React.MouseEvent<HTMLLIElement, MouseEvent>) => void;
+  onSignUp: () => void;
+  onSignIn: () => void;
+  onSignOut: () => void;
   user: { avatarUrl?: string; username: string } | null;
 }
 
@@ -74,8 +74,9 @@ export const ServiceBar: React.FC<ServiceBarProps> = (props) => {
         zIndex: (theme) => theme.zIndex.appBar + 1,
         minHeight: `${ServiceBarHeight}px!important`,
         px: { xs: 2, md: 6 },
-        backgroundColor: '#333',
-        color: (theme) => theme.palette.primary.contrastText,
+        backgroundColor: (theme) => theme.palette.background.default,
+        color: (theme) => theme.palette.text.primary,
+        borderBottom: (theme) => `1.5px solid ${theme.palette.divider}`,
         ...props.sx,
       }}
     >
@@ -122,7 +123,7 @@ export const ServiceBar: React.FC<ServiceBarProps> = (props) => {
                       <MenuItem
                         onClick={(event) => {
                           handleClose(event);
-                          onSignOut(event);
+                          onSignOut();
                         }}
                       >
                         Logout
