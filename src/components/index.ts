@@ -6,3 +6,4 @@ export * from './CookieDisclaimer.component';
 export * from './AnimatedCard.component';
 export * from './Main.component';
 export * from './Drawer.component';
+export * from './RouterLink.component';
