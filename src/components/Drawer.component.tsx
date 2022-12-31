@@ -1,3 +1,4 @@
+import { theme } from '@dulliag/components';
 import { Box, Drawer as MuiDrawer, DrawerProps as MuiDrawerProps, styled } from '@mui/material';
 import { ListItem, ListItemButton, ListItemIcon, ListItemText } from '@mui/material';
 import React from 'react';
@@ -8,12 +9,13 @@ export const drawerWidth = 260;
 
 export interface DrawerLinkProps {
   label: string;
-  icon: JSX.Element | React.ReactNode;
+  icon?: JSX.Element | React.ReactNode;
   path: string;
   onClick: () => void;
   routerLink?: boolean;
   disablePadding?: boolean;
 }
+
 export const DrawerLink: React.FC<DrawerLinkProps> = ({
   label,
   icon,
@@ -24,18 +26,28 @@ export const DrawerLink: React.FC<DrawerLinkProps> = ({
 }) => {
   return routerLink ? (
     <LinkRouter onClick={onClick} to={path} sx={{ textDecoration: 'none', color: 'unset' }}>
-      <ListItem disablePadding={disablePadding}>
+      <ListItem
+        disablePadding={disablePadding}
+        sx={{ color: (theme) => theme.palette.text.primary, py: 0 }}
+      >
         <ListItemButton sx={{ borderRadius: (theme) => `${theme.shape.borderRadius}px` }}>
-          <ListItemIcon>{icon}</ListItemIcon>
+          {icon !== undefined ? (
+            <ListItemIcon sx={{ color: 'inherit' }}>{icon}</ListItemIcon>
+          ) : null}
           <ListItemText primary={label} />
         </ListItemButton>
       </ListItem>
     </LinkRouter>
   ) : (
     <Link onClick={onClick} to={path} style={{ textDecoration: 'none', color: 'unset' }}>
-      <ListItem disablePadding={disablePadding}>
+      <ListItem
+        disablePadding={disablePadding}
+        sx={{ color: (theme) => theme.palette.text.primary, py: 0 }}
+      >
         <ListItemButton sx={{ borderRadius: (theme) => `${theme.shape.borderRadius}px` }}>
-          <ListItemIcon>{icon}</ListItemIcon>
+          {icon !== undefined ? (
+            <ListItemIcon sx={{ color: 'inherit' }}>{icon}</ListItemIcon>
+          ) : null}
           <ListItemText primary={label} />
         </ListItemButton>
       </ListItem>
@@ -72,8 +84,8 @@ export const Drawer: React.FC<DrawerProps> = (props) => {
             `${theme.transitions.duration.enteringScreen} ${theme.transitions.easing.easeIn}`,
           boxSizing: 'border-box',
           width: { xs: drawerWidth * 1.15, md: drawerWidth },
-          backgroundColor: '#333',
-          color: (theme) => theme.palette.primary.contrastText,
+          backgroundColor: (theme) => theme.palette.background.default,
+          color: (theme) => theme.palette.text.primary,
         },
         ...props.sx,
       }}
