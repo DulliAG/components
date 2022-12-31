@@ -1,4 +1,3 @@
-import { theme } from '@dulliag/components';
 import { Box, Drawer as MuiDrawer, DrawerProps as MuiDrawerProps, styled } from '@mui/material';
 import { ListItem, ListItemButton, ListItemIcon, ListItemText } from '@mui/material';
 import React from 'react';
