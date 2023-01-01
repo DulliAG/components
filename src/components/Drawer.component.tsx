@@ -13,6 +13,7 @@ export interface DrawerLinkProps {
   onClick: () => void;
   routerLink?: boolean;
   disablePadding?: boolean;
+  rounded?: boolean;
 }
 
 export const DrawerLink: React.FC<DrawerLinkProps> = ({
@@ -22,6 +23,7 @@ export const DrawerLink: React.FC<DrawerLinkProps> = ({
   onClick,
   routerLink,
   disablePadding = false,
+  rounded = false,
 }) => {
   return routerLink ? (
     <LinkRouter onClick={onClick} to={path} sx={{ textDecoration: 'none', color: 'unset' }}>
@@ -29,7 +31,9 @@ export const DrawerLink: React.FC<DrawerLinkProps> = ({
         disablePadding={disablePadding}
         sx={{ color: (theme) => theme.palette.text.primary, py: 0 }}
       >
-        <ListItemButton sx={{ borderRadius: (theme) => `${theme.shape.borderRadius}px` }}>
+        <ListItemButton
+          sx={{ borderRadius: (theme) => `${rounded ? theme.shape.borderRadius : 0}px` }}
+        >
           {icon !== undefined ? (
             <ListItemIcon sx={{ color: 'inherit' }}>{icon}</ListItemIcon>
           ) : null}
@@ -43,7 +47,9 @@ export const DrawerLink: React.FC<DrawerLinkProps> = ({
         disablePadding={disablePadding}
         sx={{ color: (theme) => theme.palette.text.primary, py: 0 }}
       >
-        <ListItemButton sx={{ borderRadius: (theme) => `${theme.shape.borderRadius}px` }}>
+        <ListItemButton
+          sx={{ borderRadius: (theme) => `${rounded ? theme.shape.borderRadius : 0}px` }}
+        >
           {icon !== undefined ? (
             <ListItemIcon sx={{ color: 'inherit' }}>{icon}</ListItemIcon>
           ) : null}
@@ -84,7 +90,6 @@ export const Drawer: React.FC<DrawerProps> = (props) => {
           boxSizing: 'border-box',
           width: { xs: drawerWidth * 1.15, md: drawerWidth },
           backgroundColor: (theme) => theme.palette.background.default,
-          color: (theme) => theme.palette.text.primary,
         },
         ...props.sx,
       }}
